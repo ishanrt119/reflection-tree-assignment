@@ -64,11 +64,11 @@ graph TD
     N37 --> N38([38. End])
 
     %% Styling
-    classDef startEnd fill:#d4edda,stroke:#28a745,stroke-width:2px;
-    classDef question fill:#cce5ff,stroke:#007bff,stroke-width:2px;
-    classDef decision fill:#fff3cd,stroke:#ffc107,stroke-width:2px;
-    classDef reflection fill:#e2e3e5,stroke:#6c757d,stroke-width:2px;
-    classDef bridge fill:#d1ecf1,stroke:#17a2b8,stroke-width:2px;
+    classDef startEnd fill:#d4edda,stroke:#28a745,stroke-width:2px,color:#000000;
+    classDef question fill:#cce5ff,stroke:#007bff,stroke-width:2px,color:#000000;
+    classDef decision fill:#fff3cd,stroke:#ffc107,stroke-width:2px,color:#000000;
+    classDef reflection fill:#e2e3e5,stroke:#6c757d,stroke-width:2px,color:#000000;
+    classDef bridge fill:#d1ecf1,stroke:#17a2b8,stroke-width:2px,color:#000000;
 
     class N1,N38 startEnd;
     class N2,N6,N11,N15,N19,N24,N29,N33 question;
