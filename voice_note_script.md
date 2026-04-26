@@ -1,17 +1,19 @@
 # Voice Note Script
 
-Hey, so here’s my approach to designing the reflection decision tree.
+Hey, so here’s how I approached designing the reflection decision tree.
 
-From the start, I knew the biggest constraint was that we absolutely could not use AI at runtime—no LLMs, no natural language processing. The output had to be completely deterministic. To achieve that, I structured the whole system as a data-driven state machine using JSON. I wanted to focus entirely on knowledge engineering—encoding actual behavioral psychology into a structured, interpretable tree instead of relying on a prompt to generate text.
+From the beginning, I treated this as a knowledge engineering problem, not an AI problem. The key constraint was that the final system had to be completely deterministic — no LLMs, no runtime intelligence. So instead of generating responses, I focused on encoding behavioral psychology directly into a structured, data-driven system using JSON.
 
-One of the big design decisions I made early on was formatting the logic as a Directed Acyclic Graph instead of a pure tree. If every question permanently split the path, a small questionnaire would turn into hundreds of nodes almost instantly. By having branches split to offer a quick, personalized reflection and then immediately converge back to the main trunk, I kept the system tight and linear while still making the user feel like their specific answers were being heard.
+One of the first design decisions I made was to model the system as a Directed Acyclic Graph instead of a pure tree. If every question created a permanent branch, the structure would grow exponentially. By allowing branches to split briefly for personalized reflections and then converge back, I was able to keep the system compact while still making each user feel heard.
 
-To actually build out the content, I used AI as a brainstorming partner. I fed it the three axes: Victim vs Victor, Entitlement vs Contribution, and Self vs Others. But this is where I actually ran into a lot of hallucinations and disagreements with the AI. 
+While building the content, I used AI as a thinking partner, not as a generator. I started with the three axes — Locus of Control, Contribution vs Entitlement, and Radius of Concern — and used AI to explore possible question patterns. But I ran into a few issues where I had to actively push back.
 
-First, the AI kept trying to inject dynamic text generation. I had to explicitly override it and force it to produce a rigid, node-based JSON structure with predefined pointers. Determinism matters because it makes the system completely reliable and auditable. Same inputs, same outputs.
+First, the AI kept trying to introduce dynamic text generation and flexible flows, which breaks determinism. I explicitly constrained it to produce a fixed node-based structure with predefined routing. That was important because the system needs to be auditable — the same inputs should always lead to the same outputs.
 
-Second, the AI naturally wanted to write questions that sounded like an HR compliance survey. I strongly pushed back on that. I rewrote the nodes for the "7 PM mental state." When you're tired at the end of the day, you don't want to parse corporate jargon. I made it sound natural—like a guided, empathetic conversation with a wise colleague. I focused on making sure the reflection nodes didn't moralize or judge; they just gently reframed the user’s perspective.
+Second, the AI naturally generated questions that sounded like a formal survey. I rejected that and rewrote most of the content with a focus on the “7 PM mental state.” At the end of the day, users are low on energy, so the questions needed to be simple, natural, and easy to respond to. I aimed for a tone that feels like a thoughtful colleague rather than a system analyzing you.
 
-To track the user’s behavior deterministically, I built a signal accumulator into the schema. Each answer assigns a weight to an axis. As the user moves through the tree, these values add up behind the scenes. 
+For behavior tracking, I implemented a signal accumulator. Each option contributes a small weight to an axis, and by the end of the flow, the system identifies dominant patterns using simple aggregation — no inference, just structured logic.
 
-Ultimately, the biggest challenge was making a rigid, deterministic machine feel empathetic. I achieved that by dynamically interpolating the user's exact text choices back into the summary to build a narrative. It validates their feeling and reflects their patterns back to them without ever using probabilistic AI models.
+The most challenging part was making a deterministic system feel genuinely reflective. I solved that using interpolation — storing both the option ID and the actual text, and then feeding that text back into reflections and the summary. This creates a personalized narrative without generating anything new, so it stays fully deterministic.
+
+Overall, the focus was on translating abstract psychological ideas into concrete, navigable decisions. The result is a system that is predictable, explainable, and still feels human.
