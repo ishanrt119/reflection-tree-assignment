@@ -1,6 +1,6 @@
 # Pseudocode & Example Runs
 
-This pseudocode demonstrates how the JSON state machine is executed deterministically without any AI logic.
+This pseudocode demonstrates how the JSON state machine is executed deterministically without any AI logic, relying purely on string interpolation to create dynamic narrative summaries.
 
 ## Runtime Engine (Pseudocode)
 
@@ -14,12 +14,13 @@ def run_reflection_tree(tree_file_path):
         
     nodes = {n['id']: n for n in data['nodes']}
     
-    # 2. Initialize the State Accumulator
+    # 2. Initialize the State Accumulator & Answer Store
     state = {
-        "locus": {"victim": 0, "victor": 0, "neutral": 0},
-        "orientation": {"entitlement": 0, "contribution": 0, "neutral": 0},
+        "locus": {"victim": 0, "victor": 0, "situational": 0},
+        "orientation": {"entitlement": 0, "contribution": 0, "balanced": 0},
         "radius": {"self": 0, "others": 0, "balanced": 0}
     }
+    answers = {} # Stores chosen option text for interpolation
     
     current_id = "node_1"
     
@@ -34,7 +35,9 @@ def run_reflection_tree(tree_file_path):
             
         # Reflection Nodes
         elif node['type'] == 'reflection':
-            print("\n-> [Reframing Insight]:", node['text'])
+            # Interpolate any {node_X.answer_text} placeholders
+            text = interpolate_text(node['text'], answers)
+            print("\n-> [Reframing Insight]:", text)
             current_id = node['next']
             
         # Question Nodes
@@ -51,7 +54,8 @@ def run_reflection_tree(tree_file_path):
             sig = selected_option['signal']
             state[sig['axis']][sig['value']] += sig['weight']
             
-            # Save answer for routing logic
+            # Save answer text for dynamic interpolation
+            answers[node['id']] = selected_option['text']
             node['answer'] = choice_id 
             current_id = node['next']
             
@@ -66,50 +70,43 @@ def run_reflection_tree(tree_file_path):
                     
         # Summary Node (Data Interpolation)
         elif node['type'] == 'summary':
-            # Calculate dominant trait for each axis
-            loc = max(state['locus'], key=state['locus'].get)
-            ori = max(state['orientation'], key=state['orientation'].get)
-            rad = max(state['radius'], key=state['radius'].get)
-            
-            # String interpolation
-            summary_text = node['text'].format(
-                state=type('StateDummy', (object,), {
-                    'locus_summary': loc,
-                    'orientation_summary': ori,
-                    'radius_summary': rad
-                })
-            )
-            print("\n--- SUMMARY ---")
+            # String interpolation creates the narrative
+            summary_text = interpolate_text(node['text'], answers)
+            print("\n--- DAILY SYNTHESIS ---")
             print(summary_text)
             current_id = node['next']
+
+def interpolate_text(text, answers):
+    # Regex replacement for {node_x.answer_text}
+    for node_id, answer_text in answers.items():
+        text = text.replace(f"{{{node_id}.answer_text}}", answer_text)
+    return text
 ```
 
 ---
 
 ## Example Journeys
 
-### Example 1: The Burnout Path (Victim + Entitlement + Self-focused)
+### Example 1: The High-Friction Path
 * **Inputs:** 
-  * Node 2: **A** ("Things kept happening to me.")
-  * Node 6: **C** ("Who can deal with this for me?")
-  * Node 11: **A** ("Getting what I need from them.")
-  * Node 15: **C** ("I did it, but felt a bit resentful.")
-  * Node 19: **A** ("No, people rarely appreciate my effort.")
-  * Node 24: **A** ("Mainly my own ease and comfort.")
-  * Node 29: **C** ("I'm not sure there were any notable successes.")
-  * Node 33: **A** ("As annoying distractions from my real work.")
-* **Accumulated State:** Locus (Victim: 2), Orientation (Entitlement: 3), Radius (Self: 3)
-* **Final Summary Output:** "Thank you for reflecting. Today, your Locus leaned towards victim, your Orientation was more towards entitlement, and your Radius focused on self."
+  * Node 2: **A** ("I spent most of my energy responding to what came my way")
+  * Node 6: **A** ("I wondered why this had to land on my plate right now")
+  * Node 11: **A** ("Getting the answers and support I needed to keep moving")
+  * Node 15: **A** ("As an interruption that pulled me away from my main work")
+  * Node 19: **A** ("I felt pretty drained when my hard work went unnoticed")
+  * Node 24: **A** ("Protecting my own workflow and keeping things simple for myself")
+  * Node 29: **A** ("It was mostly down to my own focus and hard work")
+  * Node 33: **A** ("As a distraction that threw off my momentum")
+* **Summary Output:** Replays the user's exact answers back to them in a cohesive narrative showing that their sense of agency set the tone for the day, and they were trying to protect themselves by cutting out noise.
 
-### Example 2: The Leadership Path (Victor + Contribution + Others-focused)
+### Example 2: The High-Contribution Path
 * **Inputs:** 
-  * Node 2: **B** ("I made things happen.")
-  * Node 6: **B** ("How can I solve this?")
-  * Node 11: **B** ("Providing value and helping out.")
-  * Node 15: **B** ("I saw it as an opportunity to add value.")
-  * Node 19: **B** ("I focus on the work, not the applause.")
-  * Node 24: **B** ("The needs of the team or our end-users.")
-  * Node 29: **B** ("It was a collaborative team effort.")
-  * Node 33: **B** ("As part of the job, helping the collective move forward.")
-* **Accumulated State:** Locus (Victor: 2), Orientation (Contribution: 3), Radius (Others: 3)
-* **Final Summary Output:** "Thank you for reflecting. Today, your Locus leaned towards victor, your Orientation was more towards contribution, and your Radius focused on others."
+  * Node 2: **B** ("I was able to shape how things unfolded")
+  * Node 6: **B** ("I immediately started figuring out how to fix it")
+  * Node 11: **B** ("Looking for ways I could unblock someone else")
+  * Node 15: **B** ("As a sign that my input or skills were valued")
+  * Node 19: **B** ("I felt fine—I knew I did good work, regardless of the praise")
+  * Node 24: **B** ("Making sure the team or the end-user got the best outcome")
+  * Node 29: **B** ("It was really a mix of collaboration and team support")
+  * Node 33: **B** ("As the actual work—keeping the team moving forward")
+* **Summary Output:** The narrative highlights their focus on the team, how they viewed unexpected requests as signs of trust, and how their mindset naturally operated as the exact glue keeping the team together.

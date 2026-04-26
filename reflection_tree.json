@@ -4,18 +4,18 @@
       "id": "node_1",
       "parentIds": [],
       "type": "start",
-      "text": "Let's take a moment to unpack today. There's no right or wrong way to feel about it—just a chance to observe what happened.",
+      "text": "Let's take a moment to unwind. There's no right or wrong way to feel right now—just a chance to look back at how today actually felt.",
       "next": "node_2"
     },
     {
       "id": "node_2",
       "parentIds": ["node_1"],
       "type": "question",
-      "text": "When you look back at today's rhythm, which of these resonates most?",
+      "text": "Looking back at the rhythm of the day, what feels most true?",
       "options": [
         { "id": "A", "text": "I spent most of my energy responding to what came my way", "signal": { "axis": "locus", "value": "victim", "weight": 1 } },
         { "id": "B", "text": "I was able to shape how things unfolded", "signal": { "axis": "locus", "value": "victor", "weight": 1 } },
-        { "id": "C", "text": "I just handled things as they came up and adapted", "signal": { "axis": "locus", "value": "situational", "weight": 0.5 } }
+        { "id": "C", "text": "I mostly just handled things as they came up", "signal": { "axis": "locus", "value": "situational", "weight": 0.5 } }
       ],
       "next": "node_3"
     },
@@ -33,21 +33,21 @@
       "id": "node_4",
       "parentIds": ["node_3"],
       "type": "reflection",
-      "text": "You noted that '{node_2.answer_text}'. It can be exhausting when the day's tempo is dictated by external demands. Recognizing that friction is the first step toward reclaiming your bandwidth.",
+      "text": "You noted that '{node_2.answer_text}'. It's exhausting when the day's tempo is set by everyone else. Just noticing that friction is the first step to getting your time back.",
       "next": "node_6"
     },
     {
       "id": "node_5",
       "parentIds": ["node_3"],
       "type": "reflection",
-      "text": "You mentioned that '{node_2.answer_text}'. Operating from a place of influence requires intentionality. That proactive stance often acts as a buffer against unexpected friction.",
+      "text": "You mentioned that '{node_2.answer_text}'. It takes real effort to stay in the driver's seat. That kind of intentionality is usually what keeps the daily chaos from taking over.",
       "next": "node_6"
     },
     {
       "id": "node_6",
       "parentIds": ["node_3", "node_4", "node_5"],
       "type": "question",
-      "text": "Think of an unexpected obstacle you encountered today. What was your immediate internal reaction?",
+      "text": "Think about an unexpected roadblock today. What was your very first instinct?",
       "options": [
         { "id": "A", "text": "I wondered why this had to land on my plate right now", "signal": { "axis": "locus", "value": "victim", "weight": 1 } },
         { "id": "B", "text": "I immediately started figuring out how to fix it", "signal": { "axis": "locus", "value": "victor", "weight": 1 } },
@@ -68,32 +68,32 @@
       "id": "node_8",
       "parentIds": ["node_7"],
       "type": "reflection",
-      "text": "It’s completely natural to feel resistance when a curveball hits. Often, our initial frustration is just our brain mourning the loss of the plan we originally had.",
+      "text": "It’s completely natural to feel resistance when a curveball hits. Often, that immediate frustration isn't about the new problem—it's just your brain mourning the loss of the plan you originally had.",
       "next": "node_10"
     },
     {
       "id": "node_9",
       "parentIds": ["node_7"],
       "type": "reflection",
-      "text": "Jumping straight into resolution mode is a highly adaptive response. You didn't wait for ideal conditions—you immediately shifted into navigating the reality in front of you.",
+      "text": "Jumping straight into fix-it mode takes resilience. You didn't wait for the dust to settle—you just started dealing with the reality right in front of you.",
       "next": "node_10"
     },
     {
       "id": "node_10",
       "parentIds": ["node_8", "node_9"],
       "type": "bridge",
-      "text": "That covers how you engaged with the day's events. Now, let's shift focus to how you engaged with the people around you.",
+      "text": "That’s how you handled the events of the day. Now, let's look at how things felt with the people around you.",
       "next": "node_11"
     },
     {
       "id": "node_11",
       "parentIds": ["node_10"],
       "type": "question",
-      "text": "During your collaborations today, where did your attention naturally gravitate?",
+      "text": "When working with others today, where did your attention naturally go?",
       "options": [
-        { "id": "A", "text": "Making sure I got the answers and support I needed", "signal": { "axis": "orientation", "value": "entitlement", "weight": 1 } },
-        { "id": "B", "text": "Looking for ways my input could help unblock someone else", "signal": { "axis": "orientation", "value": "contribution", "weight": 1 } },
-        { "id": "C", "text": "Just sharing what was needed without overextending myself", "signal": { "axis": "orientation", "value": "balanced", "weight": 0.5 } }
+        { "id": "A", "text": "Getting the answers and support I needed to keep moving", "signal": { "axis": "orientation", "value": "entitlement", "weight": 1 } },
+        { "id": "B", "text": "Looking for ways I could unblock someone else", "signal": { "axis": "orientation", "value": "contribution", "weight": 1 } },
+        { "id": "C", "text": "Sharing what was needed without overextending myself", "signal": { "axis": "orientation", "value": "balanced", "weight": 0.5 } }
       ],
       "next": "node_12"
     },
@@ -111,21 +111,21 @@
       "id": "node_13",
       "parentIds": ["node_12"],
       "type": "reflection",
-      "text": "Because you focused on '{node_11.answer_text}', you were prioritizing your own momentum. That self-advocacy is important, but it's worth noticing if waiting on others caused you any hidden frustration today.",
+      "text": "Because you focused on '{node_11.answer_text}', you were focused on keeping your own work moving. That matters—but it’s worth noticing if waiting on others became quietly frustrating.",
       "next": "node_15"
     },
     {
       "id": "node_14",
       "parentIds": ["node_12"],
       "type": "reflection",
-      "text": "Focusing on '{node_11.answer_text}' means you were operating with a surplus mindset. Adding value to the ecosystem often creates a ripple effect, even if it's not immediately visible.",
+      "text": "Focusing on '{node_11.answer_text}' means you were looking for ways to help even when it wasn't required. That kind of intent often goes unnoticed in the moment, but it fundamentally changes how a team functions.",
       "next": "node_15"
     },
     {
       "id": "node_15",
       "parentIds": ["node_12", "node_13", "node_14"],
       "type": "question",
-      "text": "When someone asked for your time or presented feedback today, how did you contextualize it?",
+      "text": "When someone asked for your time or threw a request your way, how did it feel?",
       "options": [
         { "id": "A", "text": "As an interruption that pulled me away from my main work", "signal": { "axis": "orientation", "value": "entitlement", "weight": 1 } },
         { "id": "B", "text": "As a sign that my input or skills were valued", "signal": { "axis": "orientation", "value": "contribution", "weight": 1 } },
@@ -146,25 +146,25 @@
       "id": "node_17",
       "parentIds": ["node_16"],
       "type": "reflection",
-      "text": "When bandwidth is tight, any new request feels heavy. Protecting your time is vital, but it's helpful to notice if you were drawing a boundary out of real necessity or just feeling defensive.",
+      "text": "When you're running low on energy, every new request feels heavy. Protecting your time is vital, but it's helpful to notice if you were drawing a boundary out of real necessity, or simply because you felt drained.",
       "next": "node_19"
     },
     {
       "id": "node_18",
       "parentIds": ["node_16"],
       "type": "reflection",
-      "text": "Choosing to view a request as an indicator of trust fundamentally changes how the work feels. It turns an obligation into a point of connection.",
+      "text": "Choosing to see a request as a sign of trust completely changes how the work feels. It turns what could be an annoying obligation into a moment of connection.",
       "next": "node_19"
     },
     {
       "id": "node_19",
       "parentIds": ["node_17", "node_18"],
       "type": "question",
-      "text": "How much did external acknowledgment influence your sense of accomplishment today?",
+      "text": "How much did you find yourself looking for acknowledgment today?",
       "options": [
-        { "id": "A", "text": "I felt pretty drained when my effort went unnoticed", "signal": { "axis": "orientation", "value": "entitlement", "weight": 1 } },
-        { "id": "B", "text": "I felt fine because I knew I did good work, regardless of praise", "signal": { "axis": "orientation", "value": "contribution", "weight": 1 } },
-        { "id": "C", "text": "I appreciated the nod when it happened, but I wasn't waiting for it", "signal": { "axis": "orientation", "value": "balanced", "weight": 0.5 } }
+        { "id": "A", "text": "I felt pretty drained when my hard work went unnoticed", "signal": { "axis": "orientation", "value": "entitlement", "weight": 1 } },
+        { "id": "B", "text": "I felt fine—I knew I did good work, regardless of the praise", "signal": { "axis": "orientation", "value": "contribution", "weight": 1 } },
+        { "id": "C", "text": "I appreciated the nod, but I wasn't waiting around for it", "signal": { "axis": "orientation", "value": "balanced", "weight": 0.5 } }
       ],
       "next": "node_20"
     },
@@ -181,32 +181,32 @@
       "id": "node_21",
       "parentIds": ["node_20"],
       "type": "reflection",
-      "text": "You mentioned that '{node_19.answer_text}'. Tying our satisfaction to external validation places our emotional state in someone else's hands. It's a very human vulnerability, but one worth noticing.",
+      "text": "You mentioned that '{node_19.answer_text}'. When we tie our satisfaction to someone else's validation, we basically hand them the keys to our mood. It's a very human thing to do, but it's worth noticing.",
       "next": "node_23"
     },
     {
       "id": "node_22",
       "parentIds": ["node_20"],
       "type": "reflection",
-      "text": "You noted that '{node_19.answer_text}'. Decoupling your sense of worth from real-time applause creates a much more resilient, self-sustaining loop of motivation.",
+      "text": "You noted that '{node_19.answer_text}'. Finding satisfaction in the work itself, without waiting for the applause, is exactly what creates lasting resilience.",
       "next": "node_23"
     },
     {
       "id": "node_23",
       "parentIds": ["node_21", "node_22"],
       "type": "bridge",
-      "text": "Now, let's take a step back and examine the scope of your awareness today—the radius of who you were solving for.",
+      "text": "Finally, let's take a step back and look at the bigger picture—the radius of who you were solving for today.",
       "next": "node_24"
     },
     {
       "id": "node_24",
       "parentIds": ["node_23"],
       "type": "question",
-      "text": "When you had to make a trade-off today, what was the primary anchor for your decision?",
+      "text": "When you had to make a hard choice or a trade-off today, what was your main priority?",
       "options": [
         { "id": "A", "text": "Protecting my own workflow and keeping things simple for myself", "signal": { "axis": "radius", "value": "self", "weight": 1 } },
         { "id": "B", "text": "Making sure the team or the end-user got the best outcome", "signal": { "axis": "radius", "value": "others", "weight": 1 } },
-        { "id": "C", "text": "Trying to find a middle ground where neither side lost too much", "signal": { "axis": "radius", "value": "balanced", "weight": 0.5 } }
+        { "id": "C", "text": "Finding a middle ground where nobody lost too much", "signal": { "axis": "radius", "value": "balanced", "weight": 0.5 } }
       ],
       "next": "node_25"
     },
@@ -224,32 +224,32 @@
       "id": "node_26",
       "parentIds": ["node_25"],
       "type": "reflection",
-      "text": "Because you prioritized '{node_24.answer_text}', your focus naturally narrowed inward. It often shows up when energy is low—your system is trying to protect itself by minimizing outside friction.",
+      "text": "Because you prioritized '{node_24.answer_text}', your focus naturally narrowed. This isn't a flaw—it usually just means your energy is low, and your brain is trying to protect itself by cutting out the noise.",
       "next": "node_29"
     },
     {
       "id": "node_27",
       "parentIds": ["node_25"],
       "type": "reflection",
-      "text": "Anchoring your choices in '{node_24.answer_text}' means you were looking at the bigger picture. You were willing to take on a bit of personal friction to make things easier for the group.",
+      "text": "Anchoring your choices in '{node_24.answer_text}' means you were looking out for the whole. You were willing to absorb a bit of personal friction so the group could move faster.",
       "next": "node_29"
     },
     {
       "id": "node_28",
       "parentIds": ["node_25"],
       "type": "reflection",
-      "text": "Seeking that compromise shows you were aware of the whole ecosystem, including yourself. Sustainable performance lives right in that tension between self-advocacy and team support.",
+      "text": "Looking for that middle ground shows you were holding both your own needs and the team's in mind. Real sustainability lives right in that balance.",
       "next": "node_29"
     },
     {
       "id": "node_29",
       "parentIds": ["node_26", "node_27", "node_28"],
       "type": "question",
-      "text": "Think about something that went well today. How did it actually come together?",
+      "text": "Think about a win from today, even a small one. How did it actually happen?",
       "options": [
         { "id": "A", "text": "It was mostly down to my own focus and hard work", "signal": { "axis": "radius", "value": "self", "weight": 1 } },
-        { "id": "B", "text": "It was the result of collaboration, shared tools, or team support", "signal": { "axis": "radius", "value": "others", "weight": 1 } },
-        { "id": "C", "text": "It was just a routine win, I didn't think much about who gets the credit", "signal": { "axis": "radius", "value": "balanced", "weight": 0.5 } }
+        { "id": "B", "text": "It was really a mix of collaboration and team support", "signal": { "axis": "radius", "value": "others", "weight": 1 } },
+        { "id": "C", "text": "It was just a routine win, I haven't really thought about it", "signal": { "axis": "radius", "value": "balanced", "weight": 0.5 } }
       ],
       "next": "node_30"
     },
@@ -266,24 +266,24 @@
       "id": "node_31",
       "parentIds": ["node_30"],
       "type": "reflection",
-      "text": "Even deeply solitary work usually leans on an invisible infrastructure built by others. Noticing that quiet support system can keep us grounded, even when we did the heavy lifting.",
+      "text": "Even when we do the heavy lifting alone, our work usually rests on an invisible foundation built by others. Just noticing that quiet support system can keep things in perspective.",
       "next": "node_33"
     },
     {
       "id": "node_32",
       "parentIds": ["node_30"],
       "type": "reflection",
-      "text": "Sharing the win doesn't make your role any smaller. It just highlights your ability to plug into a larger system and make things happen together.",
+      "text": "Sharing the credit doesn't make your own contribution any smaller. It just shows you know how to plug into a larger system and make things happen.",
       "next": "node_33"
     },
     {
       "id": "node_33",
       "parentIds": ["node_31", "node_32"],
       "type": "question",
-      "text": "When an unscheduled request or question surfaced today, how did you silently frame it?",
+      "text": "When a random question or distraction popped up today, how did you silently view it?",
       "options": [
         { "id": "A", "text": "As a distraction that threw off my momentum", "signal": { "axis": "radius", "value": "self", "weight": 1 } },
-        { "id": "B", "text": "As just part of the job—keeping the team moving forward", "signal": { "axis": "radius", "value": "others", "weight": 1 } },
+        { "id": "B", "text": "As the actual work—keeping the team moving forward", "signal": { "axis": "radius", "value": "others", "weight": 1 } },
         { "id": "C", "text": "As a hurdle I needed to clear before getting back to my real work", "signal": { "axis": "radius", "value": "self", "weight": 0.5 } }
       ],
       "next": "node_34"
@@ -301,28 +301,28 @@
       "id": "node_35",
       "parentIds": ["node_34"],
       "type": "reflection",
-      "text": "It’s incredibly common to view interruptions as enemies of progress. But shifting your perspective to see those moments as the actual glue keeping the team together can drain a lot of the frustration out of your day.",
+      "text": "It’s so easy to see interruptions as the enemy of your 'real work.' But realizing those messy moments are often the exact glue keeping the team together can take a surprising amount of frustration out of the day.",
       "next": "node_37"
     },
     {
       "id": "node_36",
       "parentIds": ["node_34"],
       "type": "reflection",
-      "text": "Seeing those ad-hoc needs as part of the primary mission shows a really wide radius. You're operating not just as an individual contributor, but as a genuine enabler for the team.",
+      "text": "Seeing those ad-hoc needs as the actual work, rather than a distraction, is a rare mindset. You're operating not just as an individual, but as the glue for the team.",
       "next": "node_37"
     },
     {
       "id": "node_37",
       "parentIds": ["node_35", "node_36"],
       "type": "summary",
-      "text": "Let's pull today's threads together. You mentioned that early on, '{node_2.answer_text}'. This defined much of your locus of control today. As you navigated the day, you found yourself focusing on '{node_11.answer_text}', which highlights your orientation toward the people around you. When unexpected requests surfaced, you viewed them '{node_15.answer_text}'. Finally, when looking at your radius of impact, your decisions were anchored in '{node_24.answer_text}'.\n\nTaken together, these choices reveal the silent architecture of your day. You aren't just reacting; you are constantly negotiating your agency, your boundaries, and your ecosystem. By simply observing these patterns without judgment, you've already taken the most crucial step toward intentionality tomorrow.",
+      "text": "Let's pull today's threads together. You mentioned that early on, '{node_2.answer_text}'. That sense of agency set the tone for your day. As you navigated your tasks, you focused on '{node_11.answer_text}', which shaped how you engaged with the people around you. When unexpected requests surfaced, you viewed them '{node_15.answer_text}'. Finally, when it came to making hard choices, you were anchored in '{node_24.answer_text}'.\n\nThere isn’t one fixed way you showed up today—you shifted depending on the situation.\n\nTaken together, these choices show the quiet reality of how you work. You aren't just reacting to a job; you are constantly negotiating your boundaries, your energy, and your team. By taking five minutes just to notice these patterns without judging them, you've already taken the most important step toward a better tomorrow.",
       "next": "node_38"
     },
     {
       "id": "node_38",
       "parentIds": ["node_37"],
       "type": "end",
-      "text": "Your reflection is complete. Let this awareness settle, leave the day's weight here, and enjoy a well-deserved rest."
+      "text": "You're done. Let these observations settle, leave the day's weight right here at the desk, and go get some rest."
     }
   ]
 }
